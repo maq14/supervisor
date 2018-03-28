@@ -10,7 +10,7 @@ public:
 	LibpcapCapture();
 	LibpcapCapture(char *dev);
 	int init();
-	void begin_dump(int interval, char *path);
+	void begin_dump(int interval, char *path, const char *mode);
 	int get_stat();
 	int get_num_recv();
 	int get_num_drop();

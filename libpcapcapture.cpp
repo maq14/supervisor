@@ -46,9 +46,10 @@ int LibpcapCapture::init()
     return 0;
 }
 
-void LibpcapCapture::begin_dump(int interval, char *path)
+void LibpcapCapture::begin_dump(int interval, char *path, const char *mode)
 {
-    dumpfile = pcap_dump_open(handle, path);
+    FILE *fp = fopen(path, mode);
+    dumpfile = pcap_dump_fopen(handle, fp);
     time_t begintime;
     time(&begintime);
     while(true)
